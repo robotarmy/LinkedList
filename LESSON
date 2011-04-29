@@ -59,7 +59,7 @@ class Node
   # create a new node 
   #
   # @param node_value : required
-  # @param next_node  : optional
+  # @param next_node  : default : nil
   #
   def initialize(node_value, next_node = nil)
   end
@@ -76,9 +76,6 @@ class Node
 
   # insert a node after me  - keeping the node next linked
   #
-  #function insertAfter(Node node, Node newNode) // insert newNode after node
-  #    newNode.next := node.next
-  #    node.next    := newNode
   def insert_next(node)
     # return self
   end
@@ -96,6 +93,8 @@ class List
   # 
   # create a new list - empty by default
   #
+  # @param first_node : default : nil
+  # 
   def initialize(first_node = nil)
   end
 
@@ -127,15 +126,13 @@ class List
   # Insert a new begining node
   #
   def insert_begining(new_begining)
-
     # return self
   end
 
   # Remove the node that is begining the list
   #
   def remove_begining
-
-    # return begining
+    # return removed node
   end
 end
 ##==end LIST
