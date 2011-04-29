@@ -1,4 +1,4 @@
-<<-README
+##==begin README
 #
 # Yes - there are supposed to be 2 1's
 #
@@ -21,56 +21,119 @@
 # 5) implement tests for the following scenarios
 #    1) find first node which has the value 'a'
 #    2) find all nodes which have the value 'z'
-#    3) define a 'sort' method for the List object
+#    3) sort a list
 #       1) each of the nodes in the List will have a number (n > 0 < n)
-#       2) calling sort on the List object will return a new list
-#       3) the original list will still be unsorted
+#       2) this method will re-order a copy of the list
+#       3) hint => use message 'dup' to make a copy of an object
 #
-# 8)pers marked #:record_attr
-#    1) design assertions according to comment about method - failing test
-#    2) write code - passing test
+# 8) implement methods for the tests in step 5
 #
-# 3) for each of the rest of the test wrappers
-#    1) design assertions according to comment about method - failing test
-#    2) write code - passing test
+# BONUS POINTS
+# 
+# 13) add a test for a class method to List with the following interface
 #
-# 5) implement tests for the following s   newNode.next := node.next
-  #    node.next    := newNode
-  #
-  def insert_after_me(new_node)
-    # return self
-  end
-end
-NODE
-<<-LIST
-class List
+#   class << self
+#     def fibonacci(length)
+#       # return 'length' elements of fibonacci sequence
+#     end
+#   end
+# 
+# 21) think of a common alternative name for :
+#
+#   'insert_next'
+#   'remove_next'
+#   'insert_begining'
+#   'remove_begining'
+#
+#   Hint - What are Stack operations?
+#
+#   (method-rename:refactor)
+#   Refactor your test and then your code to use your new names
+#
+##==end README
 
-  def initialize(beginning_node)
+
+##==begin NODE
+class Node
+  #
+  # create a new node 
+  #
+  # @param node_value : required
+  # @param next_node  : default : nil
+  #
+  def initialize(node_value, next_node = nil)
   end
 
   #:record_attr
-  def first_node
+  def data
+    # return the value of this node
+  end
+
+  #:record_attr
+  def next
+    # return the node that this is linked to or nil 
+  end
+
+  # insert a node after me  - keeping the node next linked
+  #
+  def insert_next(node)
+    # return self
+  end
+
+  # remove the node after me - keeping the node next linked
+  #
+  def remove_next
+    # return removed node
+  end
+end
+##==end NODE  
+#
+##==begin LIST
+class List
+  # 
+  # create a new list - empty by default
+  #
+  # @param first_node : default : nil
+  # 
+  def initialize(first_node = nil)
+  end
+
+  #:record_attr
+  def begining_node
     # return begining of list or nil if empty
   end
 
   #
-  # function insertBeginning(List list, Node newNode) // insert node beforhave the value 'z'
-#    3) define a 'sort' method for the List objecste List will have a number (n > 0 < n)
-#       2) calling sort on the List object will return a new lisveList object will return a new list
-#       3) the original list wilt. #:record_attr
-#    1) design assertions according to comment about method - failing test
-#    2) writeNethod - failing test
-#    2) write code - passing test
-#
-# 3) for ese#    1) design assertions according to comment about method - failing test
-#    2) write code - passinde.next
-    #   node.next := node.next.next
-    #   destroy obsoleteNode
-    #   
-    def unlink_next(node)
-      #return node
-    end
+  #  move through the list running 'yield' on each element
+  #  so that one can iterate through a list: 
+  #
+  #  List.new(Node.new(10)).each do |node|
+  #    puts node.data
+  #  end
+  #
+  def each
+    # return self
+  end
+
+  #
+  # How long is the list?
+  # 
+  def size
+    # return length
+  end
+
+  #
+  # Insert a new begining node
+  #
+  def insert_begining(new_begining)
+    # return self
+  end
+
+  # Remove the node that is begining the list
+  #
+  def remove_begining
+    # return removed node
   end
 end
-LIST
+##==end LIST
 
