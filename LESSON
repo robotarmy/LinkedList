@@ -2,7 +2,9 @@
 #
 # Yes - there are supposed to be 2 1's
 #
-# 1) In your github project
+# 0) Fork this Github Project
+#
+# 1) in your fork
 #    1) break README, NODE, and LIST into 3 files - Readme, node.rb, and list.rb
 #    2) create 2 test files - one for node and one for list
 #
