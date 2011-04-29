@@ -1,4 +1,4 @@
-<<-README
+##==begin README
 #
 # Yes - there are supposed to be 2 1's
 #
@@ -21,23 +21,33 @@
 # 5) implement tests for the following scenarios
 #    1) find first node which has the value 'a'
 #    2) find all nodes which have the value 'z'
-#    3) define a 'sort' method for the List object
+#    3) sort a list
 #       1) each of the nodes in the List will have a number (n > 0 < n)
-#       2) calling sort on the List object will return a new list
-#       3) the original list will still be unsorted
+#       2) this method will re-order a copy of the list
+#       3) hint => use message 'dup' to make a copy of an object
 #
-# 8)pers marked #:record_attr
-#    1) design assertions according to comment about method - failing test
-#    2) write code - passing test
+# 8) implement methods for the tests in step 5
 #
-# 3) for each of the rest of the test wrappers
-#    1) design assertions according to comment about method - failing test
-#    2) write code - passing test
+# BONUS POINTS
+# 
+# 13) add a test for a class method to List with the following interface
 #
-# 5) implement tests for the following s   newNode.next := node.next
-  #    node.next    := newNode
-  #
-  def insert_after_me(new_node)
-    # return self
-  end
-end
+#   class << self
+#     def fibonacci(length)
+#       # return 'length' elements of fibonacci sequence
+#     end
+#   end
+# 
+# 21) think of a common alternative name for :
+#
+#   'insert_next'
+#   'remove_next'
+#   'insert_begining'
+#   'remove_begining'
+#
+#   Hint - What are Stack operations?
+#
+#   (method-rename:refactor)
+#   Refactor your test and then your code to use your new names
+#
+##==end README
