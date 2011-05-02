@@ -1,0 +1,53 @@
+##==begin README
+#
+# Yes - there are supposed to be 2 1's
+#
+# 0) Fork this Github Project
+#
+# 1) in your fork
+#    1) break README, NODE, and LIST into 3 files - Readme, node.rb, and list.rb
+#    2) create 2 test files - one for node and one for list
+#
+# 1) Write empty test wrappers for each of the methods in described in the class
+#
+# 2) for each of the test wrappers marked #:record_attr
+#    1) design assertions according to comment about method - failing test
+#    2) write code - passing test
+#
+# 3) for each of the rest of the test wrappers
+#    1) design assertions according to comment about method - failing test
+#    2) write code - passing test
+#
+# 5) implement tests for the following scenarios
+#    1) find first node which has the value 'a'
+#    2) find all nodes which have the value 'z'
+#    3) sort a list
+#       1) each of the nodes in the List will have a number (n > 0 < n)
+#       2) this method will re-order a copy of the list
+#       3) hint => use message 'dup' to make a copy of an object
+#
+# 8) implement methods for the tests in step 5
+#
+# BONUS POINTS
+# 
+# 13) add a test for a class method to List with the following interface
+#
+#   class << self
+#     def fibonacci(length)
+#       # return 'length' elements of fibonacci sequence
+#     end
+#   end
+# 
+# 21) think of a common alternative name for :
+#
+#   'insert_next'
+#   'remove_next'
+#   'insert_begining'
+#   'remove_begining'
+#
+#   Hint - What are Stack operations?
+#
+#   (method-rename:refactor)
+#   Refactor your test and then your code to use your new names
+#
+##==end README
