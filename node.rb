@@ -1,22 +1,17 @@
-##==begin NODE
 class Node
-  #
-  # create a new node 
-  #
-  # @param node_value : required
-  # @param next_node  : default : nil
-  #
-  def initialize(node_value, next_node = nil)
+  attr_accessor :node_value, :next_node
+  
+	def initialize(node_value, next_node = nil)
+	  @node_value = node_value
+		@next_node = next_node
   end
 
-  #:record_attr
   def data
-    # return the value of this node
+	  @node_value
   end
 
-  #:record_attr
   def next
-    # return the node that this is linked to or nil 
+		@next_node
   end
 
   # insert a node after me  - keeping the node next linked
@@ -31,4 +26,3 @@ class Node
     # return removed node
   end
 end
-##==end NODE  

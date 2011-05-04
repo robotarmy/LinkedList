@@ -1,16 +1,12 @@
-##==begin LIST
 class List
-  # 
-  # create a new list - empty by default
-  #
-  # @param first_node : default : nil
-  # 
-  def initialize(first_node = nil)
+  attr_accessor :first_node
+  
+	def initialize(first_node = nil)
+	  @first_node = first_node
   end
 
-  #:record_attr
   def begining_node
-    # return begining of list or nil if empty
+    @first_node		
   end
 
   #
@@ -45,4 +41,3 @@ class List
     # return removed node
   end
 end
-##==end LIST
