@@ -1,3 +1,5 @@
+require File.join(File.dirname(__FILE__), 'node')
+
 class List
   attr_accessor :first_node
   
