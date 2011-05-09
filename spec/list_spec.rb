@@ -38,6 +38,15 @@ describe List do
     list.begining_node.next.data.should == 'apricot'
   end
 
-  it "remove_begining" do
+  it "remove_begining from List with one node" do
+    list = List.new(Node.new('watermelon'))
+    list.remove_begining
+    list.begining_node.should == nil
+  end
+
+  it "remove_begining from List with more than one node" do
+    list = List.new(Node.new('strawberry', Node.new('lime')))
+    list.remove_begining
+    list.begining_node.data.should == 'lime'
   end
 end

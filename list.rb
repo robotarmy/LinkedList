@@ -39,9 +39,9 @@ class List
     end
   end
 
-  # Remove the node that is begining the list
-  #
   def remove_begining
-    # return removed node
+    removed_begining = @first_node
+    @first_node = @first_node.next
+    removed_begining
   end
 end
