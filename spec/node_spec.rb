@@ -35,6 +35,12 @@ describe Node do
     node.next_node.data.should == 'pear'
   end
 
+  it "inserts a node between two nodes" do
+    node = Node.new('papaya',Node.new('cake'))
+    node.insert_next('fish')
+    node.next_node.next_node.data.should == 'cake' 
+  end
+
   it "removes next" do
     node = Node.new('starfruit')
     second_node = node.insert_next('elderberry')

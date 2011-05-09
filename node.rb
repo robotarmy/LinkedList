@@ -19,7 +19,12 @@ class Node
   end
 
   def insert_next(node)
-    @next_node = Node.new(node)
+    if @next_node.respond_to?(:data)
+      pushed_down_node = @next_node
+      @next_node = Node.new(node, pushed_down_node)
+    else
+      @next_node = Node.new(node)
+    end
   end
 
   def remove_next
