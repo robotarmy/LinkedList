@@ -3,8 +3,8 @@ require File.join(File.dirname(__FILE__), 'node')
 class List
   attr_accessor :first_node
   
-	def initialize(first_node = nil)
-	  @first_node = first_node
+  def initialize(first_node = nil)
+    @first_node = first_node
   end
 
   def begining_node

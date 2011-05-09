@@ -4,25 +4,25 @@ require 'rspec'
 describe List do
 
   it "initialzes" do
-	  list = List.new
+    list = List.new
     list.first_node.should == nil
   end
 
   it "begining node is nil if empty" do
-	  list = List.new
-		list.begining_node == nil
+    list = List.new
+    list.begining_node == nil
   end
 
   it "begining node returns begining node" do
-	  list = List.new('lemon')
-		list.begining_node.should == 'lemon'
-	end
+    list = List.new('lemon')
+    list.begining_node.should == 'lemon'
+  end
 
   it "begining_node knows about new Node" do
-	  list = List.new(Node.new(10))
-		list.begining_node.data.should == 10
-		list.begining_node.next.should == nil
-	end
+    list = List.new(Node.new(10))
+    list.begining_node.data.should == 10
+    list.begining_node.next.should == nil
+  end
 
   it "each" do
   end
@@ -34,5 +34,5 @@ describe List do
   end
 
   it "remove_begining" do
-	end
+  end
 end
