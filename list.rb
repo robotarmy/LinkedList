@@ -20,7 +20,7 @@ class List
   #  end
   #
   def each
-    # return self
+    return self
   end
 
   #

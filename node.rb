@@ -3,8 +3,12 @@ class Node
   
 	def initialize(node_value, next_node = nil)
 	  @node_value = node_value
-		@next_node = next_node
-  end
+  	if next_node.respond_to?(:data) || next_node == nil 
+		  @next_node = next_node
+		else
+		 raise NoMethodError "Second argument must create a new Node"
+		end
+	end
 
   def data
 	  @node_value
@@ -15,13 +19,8 @@ class Node
   end
 
   def insert_next(node)
-	  if self.next == nil
-		  @next_node = 1
-	  end
-		next_node = self.next + 1
 	  Node.new(node, next_node)
-    # return self
-  end
+	end
 
   # remove the node after me - keeping the node next linked
   #
@@ -34,4 +33,5 @@ class Node
 		# then I
     # return removed node
   end
+
 end
