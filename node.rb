@@ -19,19 +19,13 @@ class Node
   end
 
   def insert_next(node)
-	  Node.new(node, next_node)
+	  @next_node = Node.new(node)
 	end
 
-  # remove the node after me - keeping the node next linked
-  #
   def remove_next
-	  # I use the value in self.next to access the next node
-		# I read the value of next_node.next and save it to a variable
-		# I save the removed node object to a local variable
-		# I delete the node
-		# I point my node's next value to the value in the variable that has been holding the prior node's next value
-		# then I
-    # return removed node
+	  removed_node = @next_node
+	  @next_node = @next_node.next
+    removed_node
   end
 
 end
