@@ -1,22 +1,21 @@
 require 'rspec'
-
 require File.join(File.dirname(__FILE__), '..', 'node')
 
 describe Node do
 
   it "initializes" do
-	  node = Node.new('value')
-		node.node_value.should == 'value'
-		node.next_node.should == nil
+    node = Node.new('value')
+    node.node_value.should == 'value'
+    node.next_node.should == nil
   end
 
   it "has data" do
-	  node = Node.new('date')
-		node.data.should == 'date'
+    node = Node.new('date')
+    node.data.should == 'date'
   end
 
-	it "node takes data and next_node" do
-	  lambda do
+  it "node takes data and next_node" do
+    lambda do
       Node.new('plum', 'not_a_node')
     end.should raise_error
 
@@ -27,22 +26,22 @@ describe Node do
 
   it "next is an instance of Node" do
     node = Node.new('apple', Node.new('orange'))
-  	node.next.should be_an_instance_of(Node)
+    node.next.should be_an_instance_of(Node)
   end
 
   it "insert_next_has_the_correct_value_for_new_node" do
     node = Node.new('papaya')
-  	node.insert_next('pear').should be_an_instance_of(Node)
-		node.next_node.data.should == 'pear'
+    node.insert_next('pear').should be_an_instance_of(Node)
+    node.next_node.data.should == 'pear'
   end
 
   it "removes next" do
-	  node = Node.new('starfruit')
-		second_node = node.insert_next('elderberry')
-		third_node = second_node.insert_next('gooseberry')
-		fourth_node = third_node.insert_next('cranberry')
-		node.remove_next.data.should == 'elderberry'
-		node.next_node.data.should == 'gooseberry'
+    node = Node.new('starfruit')
+    second_node = node.insert_next('elderberry')
+    third_node = second_node.insert_next('gooseberry')
+    fourth_node = third_node.insert_next('cranberry')
+    node.remove_next.data.should == 'elderberry'
+    node.next_node.data.should == 'gooseberry'
   end
 
 end
