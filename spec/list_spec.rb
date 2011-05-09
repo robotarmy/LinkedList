@@ -13,15 +13,10 @@ describe List do
     list.begining_node == nil
   end
 
-  it "begining node returns begining node" do
-    list = List.new('lemon')
-    list.begining_node.should == 'lemon'
-  end
-
-  it "begining_node knows about new Node" do
-    list = List.new(Node.new(10))
-    list.begining_node.data.should == 10
-    list.begining_node.next.should == nil
+  it "begining_node returns begining node" do
+    list = List.new(Node.new('lemon'))
+    list.begining_node.should be_an_instance_of(Node)
+    list.begining_node.data == 'lemon'
   end
 
   it "each" do
@@ -30,7 +25,17 @@ describe List do
   it "size" do
   end
   
-  it "insert_begining" do
+  it "insert_begining inserts a begining into a list without a begining" do
+    list = List.new
+    list.insert_begining(Node.new('grapefruit'))
+    list.begining_node.data.should == 'grapefruit'
+  end
+
+  it "insert_begining inserts a new begining into a list with a begining" do
+    list = List.new(Node.new('apricot'))
+    list.insert_begining(Node.new('kumquat'))
+    list.begining_node.data.should == 'kumquat'
+    list.begining_node.next.data.should == 'apricot'
   end
 
   it "remove_begining" do

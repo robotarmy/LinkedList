@@ -29,11 +29,14 @@ class List
     # return length
   end
 
-  #
-  # Insert a new begining node
-  #
   def insert_begining(new_begining)
-    # return self
+    if @first_node.respond_to?(:data)
+      pushed_down_node = @first_node
+      @first_node = new_begining
+      new_begining.next_node = pushed_down_node
+    else
+      @first_node = new_begining
+    end
   end
 
   # Remove the node that is begining the list
