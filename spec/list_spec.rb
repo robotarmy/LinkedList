@@ -14,8 +14,8 @@ describe List do
   end
 
   it "begining node returns begining node" do
-	  list = List.new('mango')
-		list.begining_node.should == 'mango'
+	  list = List.new('lemon')
+		list.begining_node.should == 'lemon'
 	end
 
   it "begining_node knows about new Node" do

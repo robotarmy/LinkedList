@@ -11,7 +11,6 @@ class List
     @first_node		
   end
 
-  #
   #  move through the list running 'yield' on each element
   #  so that one can iterate through a list: 
   #

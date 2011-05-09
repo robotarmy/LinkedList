@@ -10,8 +10,8 @@ describe Node do
   end
 
   it "has data" do
-	  node = Node.new('banana')
-		node.data.should == 'banana'
+	  node = Node.new('date')
+		node.data.should == 'date'
   end
 
 	it "node takes data and next_node" do
