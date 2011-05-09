@@ -6,7 +6,7 @@ class Node
   	if next_node.respond_to?(:data) || next_node == nil 
 		  @next_node = next_node
 		else
-		 raise NoMethodError "Second argument must create a new Node"
+		 raise "Second argument must create a new Node"
 		end
 	end
 
