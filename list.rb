@@ -14,7 +14,7 @@ class List
     evaluated_node = beginning_node
     while evaluated_node.respond_to?(:data)
       yield evaluated_node
-      evaluated_node = evaluated_node.next_node
+      evaluated_node = evaluated_node.next
     end
     return self
   end
@@ -24,7 +24,7 @@ class List
     node_to_be_counted = beginning_node
     while node_to_be_counted.respond_to?(:data)
       size += 1
-      node_to_be_counted = node_to_be_counted.next_node
+      node_to_be_counted = node_to_be_counted.next
     end
     size
   end

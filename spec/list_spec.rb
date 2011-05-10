@@ -21,9 +21,13 @@ describe List do
 
   it "each" do
    list = List.new(Node.new('cherimoya', Node.new('avocado', Node.new('soursop', Node.new('persimmion', Node.new('citron'))))))
+   fruits = ['cherimoya', 'avocado', 'soursop', 'persimmion', 'citron']
+   i = 0
    list.each do |x|
-    ['cherimoya', 'avocado', 'soursop', 'persimmion', 'citron'].should include(x.data)
+     x.data.should == (fruits[i])
+     i += 1
    end
+   i.should == 5 
   end
 
   it "size returns 0 for a List with no nodes" do
