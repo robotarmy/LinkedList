@@ -5,8 +5,8 @@ describe Node do
 
   it "initializes" do
     node = Node.new('value')
-    node.node_value.should == 'value'
-    node.next_node.should == nil
+    node.data.should == 'value'
+    node.next.should == nil
   end
 
   it "has data" do
@@ -32,13 +32,13 @@ describe Node do
   it "insert_next_has_the_correct_value_for_new_node" do
     node = Node.new('papaya')
     node.insert_next('pear').should be_an_instance_of(Node)
-    node.next_node.data.should == 'pear'
+    node.next.data.should == 'pear'
   end
 
   it "inserts a node between two nodes" do
-    node = Node.new('papaya',Node.new('cake'))
-    node.insert_next('fish')
-    node.next_node.next_node.data.should == 'cake' 
+    node = Node.new('papaya',Node.new('quince'))
+    node.insert_next('rhubarb')
+    node.next.next.data.should == 'quince' 
   end
 
   it "removes next" do
@@ -47,7 +47,7 @@ describe Node do
     third_node = second_node.insert_next('gooseberry')
     fourth_node = third_node.insert_next('cranberry')
     node.remove_next.data.should == 'elderberry'
-    node.next_node.data.should == 'gooseberry'
+    node.next.data.should == 'gooseberry'
   end
 
 end

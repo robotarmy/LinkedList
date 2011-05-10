@@ -1,50 +1,47 @@
 require File.join(File.dirname(__FILE__), 'node')
 
 class List
-  attr_accessor :first_node
   
   def initialize(first_node = nil)
     @first_node = first_node
   end
 
-  def begining_node
+  def beginning_node
     @first_node		
   end
 
-  #  move through the list running 'yield' on each element
-  #  so that one can iterate through a list: 
-  #
-  #  List.new(Node.new(10)).each do |node|
-  #    puts node.data
-  #  end
-  #
   def each
+    evaluated_node = beginning_node
+    while evaluated_node.respond_to?(:data)
+      yield evaluated_node
+      evaluated_node = evaluated_node.next_node
+    end
     return self
   end
 
   def size
     size = 0
-    evaluated_node = @first_node
-    while evaluated_node.respond_to?(:data)
+    node_to_be_counted = beginning_node
+    while node_to_be_counted.respond_to?(:data)
       size += 1
-      evaluated_node = evaluated_node.next_node
+      node_to_be_counted = node_to_be_counted.next_node
     end
     size
   end
 
-  def insert_begining(new_begining)
+  def insert_beginning(new_beginning)
     if @first_node.respond_to?(:data)
       pushed_down_node = @first_node
-      @first_node = new_begining
-      new_begining.next_node = pushed_down_node
+      @first_node = new_beginning
+      new_beginning.next_node = pushed_down_node
     else
-      @first_node = new_begining
+      @first_node = new_beginning
     end
   end
 
-  def remove_begining
-    removed_begining = @first_node
+  def remove_beginning
+    removed_beginning = @first_node
     @first_node = @first_node.next
-    removed_begining
+    removed_beginning
   end
 end
