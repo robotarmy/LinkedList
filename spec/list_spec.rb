@@ -22,7 +22,19 @@ describe List do
   it "each" do
   end
 
-  it "size" do
+  it "size returns 0 for a List with no nodes" do
+    list = List.new
+    list.size.should == 0
+  end
+
+  it "size returns 1 for a List with one node" do
+    list = List.new(Node.new('raspberry'))
+    list.size.should == 1
+  end
+
+  it "size returns 5 for a List with five nodes" do
+    list = List.new(Node.new('lychee', Node.new('coconut', Node.new('fig', Node.new('pomegranate', Node.new('loquat')))))) 
+    list.size.should == 5
   end
   
   it "insert_begining inserts a begining into a list without a begining" do

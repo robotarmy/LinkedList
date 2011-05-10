@@ -22,11 +22,14 @@ class List
     return self
   end
 
-  #
-  # How long is the list?
-  # 
   def size
-    # return length
+    size = 0
+    evaluated_node = @first_node
+    while evaluated_node.respond_to?(:data)
+      size += 1
+      evaluated_node = evaluated_node.next_node
+    end
+    size
   end
 
   def insert_begining(new_begining)
