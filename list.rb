@@ -30,8 +30,8 @@ class List
   end
 
   def insert_beginning(new_beginning)
-    if @first_node.respond_to?(:data)
-      pushed_down_node = @first_node
+    if self.beginning_node.respond_to?(:data)
+      pushed_down_node = self.beginning_node
       @first_node = new_beginning
       new_beginning.next_node = pushed_down_node
     else
@@ -40,8 +40,8 @@ class List
   end
 
   def remove_beginning
-    removed_beginning = @first_node
-    @first_node = @first_node.next
+    removed_beginning = self.beginning_node
+    @first_node = self.beginning_node.next
     removed_beginning
   end
 end
