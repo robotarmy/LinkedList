@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '..', 'lib', 'list')
+require File.join(File.dirname(__FILE__), 'spec_helper')
 require 'rspec'
 
 describe List do
