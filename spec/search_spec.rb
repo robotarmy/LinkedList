@@ -10,14 +10,14 @@ describe List do
   end
 
   it "finds all nodes which have the value 'z'" do
-    last_node = Node.new('z')
-    third_node = Node.new('z', Node.new('platypus', last_node))
-    second_node = Node.new('z', third_node)
-    list = List.new(Node.new('anteater', second_node))
-    array_of_object_ids = [second_node.object_id, third_node.object_id, last_node.object_id]
+    array = []
+    array[2] = Node.new('z')
+    array[1] = Node.new('z', Node.new('platypus', array[2]))
+    array[0] = Node.new('z', array[1])
+    list = List.new(Node.new('anteater', array[0]))
     i = 0
     list.all('z').each do |x|
-      x.object_id.should == array_of_object_ids[i]
+      x.object_id.should == array[i].object_id
       i += 1
     end
     i.should == 3
