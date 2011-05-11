@@ -29,6 +29,26 @@ class List
     size
   end
 
+  def first(value)
+    list = self
+    list.each do |node|
+      @node = node
+      break if node.data == value
+    end
+    return @node
+  end
+
+  def all(value)
+    list = self
+    array = []
+    list.each do |node|
+      if node.data == value
+        array << node
+      end
+    end
+    array
+  end
+
   def insert_beginning(new_beginning)
     if beginning_node.respond_to?(:data)
       pushed_down_node = beginning_node
