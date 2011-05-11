@@ -55,7 +55,7 @@ describe List do
     list = List.new(Node.new('apricot'))
     list.insert_beginning(Node.new('kumquat'))
     list.beginning_node.data.should == 'kumquat'
-    list.beginning_node.next.data.should == 'apricot'
+    list.beginning_node.the_next.data.should == 'apricot'
   end
 
   it "remove_beginning from List with one node" do

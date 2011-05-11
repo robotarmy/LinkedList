@@ -14,7 +14,7 @@ class List
     evaluated_node = beginning_node
     while evaluated_node.respond_to?(:data)
       yield evaluated_node
-      evaluated_node = evaluated_node.next
+      evaluated_node = evaluated_node.the_next
     end
     return self
   end
@@ -24,14 +24,14 @@ class List
     node_to_be_counted = beginning_node
     while node_to_be_counted.respond_to?(:data)
       size += 1
-      node_to_be_counted = node_to_be_counted.next
+      node_to_be_counted = node_to_be_counted.the_next
     end
     size
   end
 
   def insert_beginning(new_beginning)
-    if self.beginning_node.respond_to?(:data)
-      pushed_down_node = self.beginning_node
+    if beginning_node.respond_to?(:data)
+      pushed_down_node = beginning_node
       @first_node = new_beginning
       new_beginning.next_node = pushed_down_node
     else
@@ -40,8 +40,8 @@ class List
   end
 
   def remove_beginning
-    removed_beginning = self.beginning_node
-    @first_node = self.beginning_node.next
+    removed_beginning = beginning_node
+    @first_node = beginning_node.the_next
     removed_beginning
   end
 end

@@ -14,13 +14,13 @@ class Node
     @node_value
   end
 
-  def next
+  def the_next
     @next_node
   end
 
   def insert_next(node)
-    if self.next.respond_to?(:data)
-      pushed_down_node = self.next
+    if the_next.respond_to?(:data)
+      pushed_down_node = the_next
       @next_node = Node.new(node, pushed_down_node)
     else
       @next_node = Node.new(node)
@@ -28,8 +28,8 @@ class Node
   end
 
   def remove_next
-    removed_node = self.next
-    @next_node = self.next.next
+    removed_node = the_next
+    @next_node = the_next.the_next
     removed_node
   end
 
