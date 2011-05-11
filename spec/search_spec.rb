@@ -1,9 +1,10 @@
 require File.join(File.dirname(__FILE__), 'spec_helper')
 
 describe List do
+  include SpecHelper
 
   it "finds the first node which has the value 'a'" do
-    node = Node.new('a', Node.new('antelope', Node.new('a', Node.new('tiger'))))
+    node = create_node(['a', 'antelope', 'a', 'tiger'])
     list = List.new(Node.new('elephant', node))
     list.first('a').object_id.should == node.object_id
   end

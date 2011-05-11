@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), 'spec_helper')
-require 'rspec'
 
 describe List do
+  include SpecHelper
 
   it "initialzes" do
     list = List.new
@@ -14,13 +14,13 @@ describe List do
   end
 
   it "beginning_node returns beginning node" do
-    list = List.new(Node.new('lemon'))
+    list = List.new(create_node(['lemon']))
     list.beginning_node.should be_an_instance_of(Node)
     list.beginning_node.data == 'lemon'
   end
 
   it "each" do
-   list = List.new(Node.new('cherimoya', Node.new('avocado', Node.new('soursop', Node.new('persimmion', Node.new('citron'))))))
+   list = List.new(create_node(['cherimoya', 'avocado', 'soursop', 'persimmion', 'citron']))
    fruits = ['cherimoya', 'avocado', 'soursop', 'persimmion', 'citron']
    i = 0
    list.each do |x|
@@ -36,36 +36,36 @@ describe List do
   end
 
   it "size returns 1 for a List with one node" do
-    list = List.new(Node.new('raspberry'))
+    list = List.new(create_node(['raspberry']))
     list.size.should == 1
   end
 
   it "size returns 5 for a List with five nodes" do
-    list = List.new(Node.new('lychee', Node.new('coconut', Node.new('fig', Node.new('pomegranate', Node.new('loquat')))))) 
+    list = List.new(create_node(['lychee', 'coconut', 'fig', 'pomegranate', 'loquat'])) 
     list.size.should == 5
   end
   
   it "insert_beginning inserts a beginning into a list without a beginning" do
     list = List.new
-    list.insert_beginning(Node.new('grapefruit'))
+    list.insert_beginning(create_node(['grapefruit']))
     list.beginning_node.data.should == 'grapefruit'
   end
 
   it "insert_beginning inserts a new beginning into a list with a beginning" do
-    list = List.new(Node.new('apricot'))
-    list.insert_beginning(Node.new('kumquat'))
+    list = List.new(create_node(['apricot']))
+    list.insert_beginning(create_node(['kumquat']))
     list.beginning_node.data.should == 'kumquat'
     list.beginning_node.the_next.data.should == 'apricot'
   end
 
   it "remove_beginning from List with one node" do
-    list = List.new(Node.new('watermelon'))
+    list = List.new(create_node(['watermelon']))
     list.remove_beginning
     list.beginning_node.should == nil
   end
 
   it "remove_begining from List with more than one node" do
-    list = List.new(Node.new('strawberry', Node.new('lime')))
+    list = List.new(create_node(['strawberry', 'lime']))
     list.remove_beginning
     list.beginning_node.data.should == 'lime'
   end

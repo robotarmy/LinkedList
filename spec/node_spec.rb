@@ -1,7 +1,7 @@
-require 'rspec'
 require File.join(File.dirname(__FILE__), 'spec_helper')
 
 describe Node do
+  include SpecHelper
 
   it "initializes" do
     node = Node.new('value')
@@ -10,7 +10,7 @@ describe Node do
   end
 
   it "has data" do
-    node = Node.new('date')
+    node = create_node(['date'])
     node.data.should == 'date'
   end
 
@@ -25,27 +25,24 @@ describe Node do
   end
 
   it "next is an instance of Node" do
-    node = Node.new('apple', Node.new('orange'))
+    node = create_node(['apple', 'orange'])
     node.the_next.should be_an_instance_of(Node)
   end
 
   it "insert_next_has_the_correct_value_for_new_node" do
-    node = Node.new('papaya')
+    node = create_node(['papaya'])
     node.insert_next('pear').should be_an_instance_of(Node)
     node.the_next.data.should == 'pear'
   end
 
   it "inserts a node between two nodes" do
-    node = Node.new('papaya',Node.new('quince'))
+    node = create_node(['papaya', 'quince'])
     node.insert_next('rhubarb')
     node.the_next.the_next.data.should == 'quince' 
   end
 
   it "removes next" do
-    node = Node.new('starfruit')
-    second_node = node.insert_next('elderberry')
-    third_node = second_node.insert_next('gooseberry')
-    fourth_node = third_node.insert_next('cranberry')
+    node = create_node(['starfruit', 'elderberry', 'gooseberry', 'cranberry'])
     node.remove_next.data.should == 'elderberry'
     node.the_next.data.should == 'gooseberry'
   end
