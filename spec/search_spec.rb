@@ -4,12 +4,9 @@ require File.join(File.dirname(__FILE__), '..', 'lib', 'list')
 describe List do
 
   it "finds the first node which has the value 'a'" do
-    list = List.new(Node.new('elephant', Node.new('a', Node.new('antelope', Node.new('a', Node.new('tiger'))))))
-    object_id_array = []
-    list.each do |x|
-      object_id_array << x.object_id
-    end
-    list.first('a').object_id.should == object_id_array[1]
+    node = Node.new('a', Node.new('antelope', Node.new('a', Node.new('tiger'))))
+    list = List.new(Node.new('elephant', node))
+    list.first('a').object_id.should == node.object_id
   end
 
   it "finds all nodes which have the value 'z'" do
