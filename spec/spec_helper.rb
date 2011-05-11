@@ -6,7 +6,7 @@ module SpecHelper
 
   def create_node(values)
     nodes = nil
-    while values.respond_to?(:pop)
+    while values.length != 0
       nodes = Node.new(values.last, nodes)
       values.pop
     end

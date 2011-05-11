@@ -1,9 +1,19 @@
 require 'spec_helper'
 
-describe SpecHelper do
+class DummyClass
+  include SpecHelper
+end
 
-  it "creates a list of nodes when given an array of values" do
-    create_node['dog', 'cat', 'bird', 'fish'].should == Node.new('dog', Node.new('cat', Node.new('bird', Node.new('fish'))))
+describe DummyClass do
+  before(:each) do
+    @dummy_class = DummyClass.new
+    @dummy_class.extend(SpecHelper)
   end
 
+
+  it "creates a list of nodes when given an array of values" do
+    array = ['dog', 'cat', 'bird', 'fish']
+    nodes = @dummy_class.create_node(array)
+    puts nodes.inspect
+  end
 end
