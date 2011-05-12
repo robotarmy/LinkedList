@@ -20,11 +20,10 @@ class List
   end
 
   def size
+    list = self
     size = 0
-    node_to_be_counted = beginning_node
-    while node_to_be_counted.respond_to?(:data)
+    list.each do |node|
       size += 1
-      node_to_be_counted = node_to_be_counted.the_next
     end
     size
   end
