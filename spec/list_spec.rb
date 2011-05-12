@@ -20,8 +20,8 @@ describe List do
   end
 
   it "each" do
-   list = List.new(create_node(['cherimoya', 'avocado', 'soursop', 'persimmion', 'citron']))
    fruits = ['cherimoya', 'avocado', 'soursop', 'persimmion', 'citron']
+   list = List.new(create_node(['cherimoya', 'avocado', 'soursop', 'persimmion', 'citron']))
    i = 0
    list.each do |x|
      x.data.should == (fruits[i])
