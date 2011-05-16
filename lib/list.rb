@@ -107,6 +107,19 @@ class List
     [left, right]
   end
 
+  def swap
+    list = self
+    if list.size == 2
+      new_beginning = list.beginning_node.the_next
+      list.remove_end
+      list.insert_beginning(new_beginning)
+    elsif list.size < 2
+      list
+    else
+      raise "The swap method only works for lists with two nodes."
+    end
+  end
+
   def sort
     duplicated_list = self.dup
     if duplicated_list.size < 2

@@ -31,4 +31,23 @@ describe List do
  #    i.should == 2
  #  end
   end
+
+  context "swap" do
+    it "takes a list of maximum size 2 and swaps the nodes" do
+    node = create_node(['cat'])
+    list = List.new(Node.new('horse', node))
+    list.swap
+    list.beginning_node.object_id.should == node.object_id
+    i = 0
+    list.each do |x|
+      x.data.should == ['cat', 'horse'][i]
+      i += 1
+    end
+    i.should == 2
+
+    lambda do
+      List.new(Node.new('Panama', Node.new('boater', Node.new('veil')))).swap
+    end.should raise_error
+    end
+  end
 end
