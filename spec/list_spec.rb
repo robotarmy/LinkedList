@@ -30,43 +30,62 @@ describe List do
    i.should == 5 
   end
 
-  it "size returns 0 for a List with no nodes" do
-    list = List.new
-    list.size.should == 0
-  end
+  context "size" do
+    it "returns 0 for a List with no nodes" do
+      list = List.new
+      list.size.should == 0
+    end
 
-  it "size returns 1 for a List with one node" do
-    list = List.new(create_node(['raspberry']))
-    list.size.should == 1
-  end
+    it "returns 1 for a List with one node" do
+      list = List.new(create_node(['raspberry']))
+      list.size.should == 1
+    end
 
-  it "size returns 5 for a List with five nodes" do
-    list = List.new(create_node(['lychee', 'coconut', 'fig', 'pomegranate', 'loquat'])) 
-    list.size.should == 5
+    it "returns 5 for a List with five nodes" do
+      list = List.new(create_node(['lychee', 'coconut', 'fig', 'pomegranate', 'loquat'])) 
+      list.size.should == 5
+    end
   end
   
-  it "insert_beginning inserts a beginning into a list without a beginning" do
-    list = List.new
-    list.insert_beginning(create_node(['grapefruit']))
-    list.beginning_node.data.should == 'grapefruit'
+  context "insert_beginning" do
+    it "inserts a beginning into a list without a beginning" do
+      list = List.new
+      list.insert_beginning(create_node(['grapefruit']))
+      list.beginning_node.data.should == 'grapefruit'
+    end
+
+    it "inserts a new beginning into a list with a beginning" do
+      list = List.new(create_node(['apricot']))
+      list.insert_beginning(create_node(['kumquat']))
+      list.beginning_node.data.should == 'kumquat'
+      list.beginning_node.the_next.data.should == 'apricot'
+    end
+
+    it "inserts a new beginning into a list as a specific location in the List" do
+      array = ['carrot', 'tomato', 'celery', 'bok choy']
+      node = create_node(['carrot', 'tomato', 'celery', 'bok choy'])
+      list = List.new(Node.new('eggplant', Node.new('beans', Node.new('peas', Node.new('potato', node)))))
+      list_with_new_beginning = list.insert_beginning(4)
+      i = 0
+      list_with_new_beginning.each do |x|
+        x.data.should == array[i]
+        i += 1
+      end
+      i.should == 4
+    end
   end
 
-  it "insert_beginning inserts a new beginning into a list with a beginning" do
-    list = List.new(create_node(['apricot']))
-    list.insert_beginning(create_node(['kumquat']))
-    list.beginning_node.data.should == 'kumquat'
-    list.beginning_node.the_next.data.should == 'apricot'
-  end
+  context "remove_beginning" do
+    it "from List with one node" do
+      list = List.new(create_node(['watermelon']))
+      list.remove_beginning
+      list.beginning_node.should == nil
+    end
 
-  it "remove_beginning from List with one node" do
-    list = List.new(create_node(['watermelon']))
-    list.remove_beginning
-    list.beginning_node.should == nil
-  end
-
-  it "remove_begining from List with more than one node" do
-    list = List.new(create_node(['strawberry', 'lime']))
-    list.remove_beginning
-    list.beginning_node.data.should == 'lime'
+    it "from List with more than one node" do
+      list = List.new(create_node(['strawberry', 'lime']))
+      list.remove_beginning
+      list.beginning_node.data.should == 'lime'
+    end
   end
 end

@@ -48,13 +48,38 @@ class List
     array
   end
 
-  def insert_beginning(new_beginning)
-    if beginning_node.respond_to?(:data)
-      pushed_down_node = beginning_node
-      @first_node = new_beginning
-      new_beginning.next_node = pushed_down_node
+# the first node is location 0 (zero)
+  def locate_node(location)
+    cache = self.beginning_node
+    location.times do
+      cache = cache.the_next
+    end
+    cache
+  end
+
+ #def split
+ #  list = self.dup
+ #  lists = []
+ #  lists << List.new(Node.new(locate_node(list.size / 2)))
+ #  lists
+ #end
+
+  def insert_beginning(new_beginning_or_location)
+    if new_beginning_or_location.respond_to?(:data)
+      new_beginning = new_beginning_or_location
+      if beginning_node.respond_to?(:data)
+        pushed_down_node = beginning_node
+        @first_node = new_beginning
+        new_beginning.next_node = pushed_down_node
+      else
+        @first_node = new_beginning
+      end
+    elsif new_beginning_or_location.respond_to?(:/)
+      location = new_beginning_or_location
+      node = locate_node(location)
+      new_list = List.new(node)
     else
-      @first_node = new_beginning
+      puts "Hello from the else!"
     end
   end
 
@@ -62,5 +87,15 @@ class List
     removed_beginning = beginning_node
     @first_node = beginning_node.the_next
     removed_beginning
+  end
+
+  def sort
+    duplicated_list = self.dup
+    if duplicated_list.size < 2
+    else
+       left = (duplicated_list.size / 2)
+       #right
+    end
+    duplicated_list
   end
 end
