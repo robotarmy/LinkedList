@@ -90,7 +90,7 @@ describe List do
   end
 
   context "remove_end" do
-    it "removes the node at the end of the list" do
+    it "with no argument it removes the node at the end of the list" do
       array = ['almond', 'walnut', 'peanut', 'pecan', 'hazelnut']  
       list = List.new(create_node(['almond', 'walnut', 'peanut', 'pecan', 'hazelnut']))
       shorter_list = list.remove_end
@@ -100,6 +100,18 @@ describe List do
         i += 1
       end
       i.should == 4
+    end
+
+    it "with a location argument it removes the remaining nodes in the list" do
+      array = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+      list = List.new(create_node(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']))
+      list_with_three_nodes = list.remove_end(2)
+      i = 0
+      list_with_three_nodes.each do |x|
+        x.data.should == array[i]
+        i += 1
+      end
+      i.should == 3
     end
   end
 end

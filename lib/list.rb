@@ -82,11 +82,19 @@ class List
     removed_beginning
   end
 
-  def remove_end
+  def remove_end(location = nil)
     list = self
-    location = list.size - 2
-    node = locate_node(location)
-    node.remove_next
+    if location == nil
+      location = list.size - 2
+      node = locate_node(location)
+      node.remove_next
+    else
+      repeats = (size - location) - 1
+      node = locate_node(location)
+      repeats.times do
+        node.remove_next
+      end
+    end
     list
   end
 
