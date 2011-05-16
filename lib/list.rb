@@ -48,7 +48,7 @@ class List
     array
   end
 
-# the first node is location 1 (zero)
+# the first node is location 1 (one)
   def locate_node(location)
     cache = self.beginning_node
     (location - 1).times do
