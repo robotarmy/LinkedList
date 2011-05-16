@@ -103,7 +103,7 @@ describe List do
     end
 
     it "with a location argument it removes the remaining nodes in the list" do
-      array = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
+      array = ['red', 'orange', 'yellow']
       list = List.new(create_node(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']))
       list_with_three_nodes = list.remove_end(3)
       i = 0
@@ -116,12 +116,46 @@ describe List do
   end
 
   context "#split" do
-    it "returns two lists of 4 nodes each from a list of 8 nodes" do
+    it "returns two lists accounting for all the nodes from a list of even size" do
+      left_array = ['bonnet', 'bowler', 'Stetson', 'fedora']
+      right_array = ['hat', 'chapeau', 'cap', 'lid']
       node = create_node(['hat', 'chapeau', 'cap', 'lid'])
       list = List.new(Node.new('bonnet', Node.new('bowler', Node.new('Stetson', Node.new('fedora', node)))))
       left, right = list.split
-      left.size.should == 4
-      right.size.should == 4
+      i = 0
+      left.each do |x|
+        x.data.should == left_array[i]
+        i += 1
+      end
+      i.should == 4
+      j = 0
+      right.each do |x|
+        x.data.should == right_array[j]
+        j += 1
+      end
+      j.should == 4
+      right.beginning_node.object_id.should == node.object_id
+    end
+
+    it "returns two lists accounting for all the nodes from a list of uneven size" do
+      left_array = ['wimple', 'shawl', 'babushka']
+      right_array = ['miter', 'tiara', 'toque', 'turban']
+      node = create_node(['miter','tiara','toque','turban'])
+      list = List.new(Node.new('wimple', Node.new('shawl', Node.new('babushka', node))))
+      left, right = list.split
+      i = 0
+      left.each do |x|
+        x.data.should == left_array[i]
+        i += 1
+      end
+      i.should == 3
+      j = 0
+      right.each do |x|
+        x.data.should == right_array[j]
+        j += 1
+      end
+      j.should == 4
+      right.beginning_node.object_id.should == node.object_id
     end
   end
 end
