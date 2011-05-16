@@ -57,13 +57,6 @@ class List
     cache
   end
 
- #def split
- #  list = self.dup
- #  lists = []
- #  lists << List.new(Node.new(locate_node(list.size / 2)))
- #  lists
- #end
-
   def insert_beginning(new_beginning_or_location)
     if new_beginning_or_location.respond_to?(:data)
       new_beginning = new_beginning_or_location
@@ -87,6 +80,14 @@ class List
     removed_beginning = beginning_node
     @first_node = beginning_node.the_next
     removed_beginning
+  end
+
+  def remove_end
+    list = self
+    location = list.size - 2
+    node = locate_node(location)
+    node.remove_next
+    list
   end
 
   def sort

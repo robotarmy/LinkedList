@@ -88,4 +88,18 @@ describe List do
       list.beginning_node.data.should == 'lime'
     end
   end
+
+  context "remove_end" do
+    it "removes the node at the end of the list" do
+      array = ['almond', 'walnut', 'peanut', 'pecan', 'hazelnut']  
+      list = List.new(create_node(['almond', 'walnut', 'peanut', 'pecan', 'hazelnut']))
+      shorter_list = list.remove_end
+      i = 0
+      shorter_list.each do |x|
+        x.data.should == array[i]
+        i += 1
+      end
+      i.should == 4
+    end
+  end
 end
