@@ -65,7 +65,7 @@ describe List do
       array = ['carrot', 'tomato', 'celery', 'bok choy']
       node = create_node(['carrot', 'tomato', 'celery', 'bok choy'])
       list = List.new(Node.new('eggplant', Node.new('beans', Node.new('peas', Node.new('potato', node)))))
-      list_with_new_beginning = list.insert_beginning(4)
+      list_with_new_beginning = list.insert_beginning(5)
       i = 0
       list_with_new_beginning.each do |x|
         x.data.should == array[i]
@@ -105,13 +105,23 @@ describe List do
     it "with a location argument it removes the remaining nodes in the list" do
       array = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']
       list = List.new(create_node(['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet']))
-      list_with_three_nodes = list.remove_end(2)
+      list_with_three_nodes = list.remove_end(3)
       i = 0
       list_with_three_nodes.each do |x|
         x.data.should == array[i]
         i += 1
       end
       i.should == 3
+    end
+  end
+
+  context "#split" do
+    it "returns two lists of 4 nodes each from a list of 8 nodes" do
+      node = create_node(['hat', 'chapeau', 'cap', 'lid'])
+      list = List.new(Node.new('bonnet', Node.new('bowler', Node.new('Stetson', Node.new('fedora', node)))))
+      left, right = list.split
+      left.size.should == 4
+      right.size.should == 4
     end
   end
 end

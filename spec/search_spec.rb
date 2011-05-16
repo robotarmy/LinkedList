@@ -26,7 +26,7 @@ describe List do
   it "returns the node at a specific location in the list" do
     node = create_node(['carrot', 'tomato', 'celery', 'bok choy'])
     list = List.new(Node.new('eggplant', Node.new('beans', Node.new('peas', Node.new('potato', node)))))
-    list.locate_node(4).object_id.should == node.object_id
+    list.locate_node(5).object_id.should == node.object_id
   end
  
 end

@@ -48,10 +48,10 @@ class List
     array
   end
 
-# the first node is location 0 (zero)
+# the first node is location 1 (zero)
   def locate_node(location)
     cache = self.beginning_node
-    location.times do
+    (location - 1).times do
       cache = cache.the_next
     end
     cache
@@ -85,17 +85,26 @@ class List
   def remove_end(location = nil)
     list = self
     if location == nil
-      location = list.size - 2
+      location = list.size - 1
       node = locate_node(location)
       node.remove_next
     else
-      repeats = (size - location) - 1
+      repeats = (size - location)
       node = locate_node(location)
       repeats.times do
         node.remove_next
       end
     end
     list
+  end
+
+  def split
+    list = self
+    location = list.size / 2
+    new_list = list.dup
+    right = new_list.insert_beginning(location + 1)
+    left = new_list.remove_end(location)
+    [left, right]
   end
 
   def sort
