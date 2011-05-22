@@ -1,0 +1,43 @@
+Assignment - Document your workflow process, steps and stages.
+
+Linked List Project.
+
+Beginning
+  Fork github repo && cloned.
+  Read instructions.
+  Follow instructions && push.
+  Recognize confusion at result.
+  Converse with creator of instructions.
+
+  Second Beginning
+    Add upstream to git fork.
+    Pull revised instructions.
+    Edit my previous submission.
+
+In the midst of it all
+  Proceed through instructions.
+  Feel lost.
+  Feel confident.
+  Announce impending conclusion of project.
+
+  First Ending
+    Realize I did not fully grasp the nature of the task at hand.
+
+Still in the midst of it all
+  Continue to work with new awareness.
+  Feel lost.
+  Feel confident.
+  Announce the impending conclusion of the project.
+
+  Second Ending
+    Realize my design decisions have made my code powerful and unmanagable.
+    Feel overwhelmed.
+    Participate in a lecture on the reality and fantasy of nodes and a list interface.
+
+Back into the midst of it all
+  Allow a new paradigm to blossom.
+  Begin to refactor my specs starting with the easiest.
+  Specify the object each method requires and the object each method returns.
+
+Current status
+  Create this workflow.
