@@ -121,6 +121,7 @@ class List
   end
 
   def sort
+    # deep clone the list - dup all nodes in the list as well as the list
     duplicated_list = self.dup
     if duplicated_list.size < 2
     else
